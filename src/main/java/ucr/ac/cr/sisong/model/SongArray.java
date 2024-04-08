@@ -11,6 +11,8 @@ import java.util.ArrayList;
  */
 public class SongArray {
     private ArrayList<Song> listSongs;
+    private ArrayList<Song> listSongsSelected;
+    
     public SongArray(){
         this.listSongs=new ArrayList<>();
     }
@@ -84,5 +86,21 @@ public class SongArray {
             }
         }
         return matrizSongs;
-    }  
+    } 
+    
+    public void addSongSelected(Song song){
+        listSongsSelected.add(song);
+    }
+    
+    public String[][] getSelectedSongSelected(){
+        String[][] matrixSongs = new String[this.listSongsSelected.size()][Song.TITLE_SONG.length];
+        
+            for (int i = 0; i < matrixSongs.length; i++) {
+                for (int j = 0; j < matrixSongs[0].length; j++) {
+                    matrixSongs[i][j] = this.listSongsSelected.get(i).getDataSong(j);
+                }
+            }
+        return matrixSongs;
+    }
+            
 }
