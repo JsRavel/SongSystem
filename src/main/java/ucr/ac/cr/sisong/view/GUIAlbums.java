@@ -5,8 +5,12 @@
 package ucr.ac.cr.sisong.view;
 
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.table.DefaultTableModel;
+import ucr.ac.cr.sisong.model.Song;
+import ucr.ac.cr.sisong.model.SongArray;
 
 /**
  *
@@ -20,6 +24,13 @@ public class GUIAlbums extends javax.swing.JFrame {
     public GUIAlbums() {
         initComponents();
     }
+    
+    
+    public javax.swing.JTable getTblAlbumSongs() {
+        return tblAlbumSongs;
+    }
+
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -168,7 +179,7 @@ public class GUIAlbums extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtTitleActionPerformed
 
-    public void setDataTable(String[][] matrix, String[] title){
+    public void setDataTableRegistered(String[][] matrix, String[] title){
         DefaultTableModel model = new DefaultTableModel(matrix, title);
         this.tblRegisteredSongs.setModel(model);
         this.jScrollPane1.setViewportView(this.tblRegisteredSongs);
@@ -183,16 +194,41 @@ public class GUIAlbums extends javax.swing.JFrame {
         return dataSong;
     }
     
-    
+    public void setDataTableAlbums(String[][] matrix, String[] title){
+        DefaultTableModel model = new DefaultTableModel(matrix, title);
+        this.tblAlbumSongs.setModel(model);
+        this.jScrollPane1.setViewportView(this.tblRegisteredSongs);
+    }
     
     public void listen(ActionListener controller){
         this.btnClose.addActionListener(controller);
         this.btnAdd.addActionListener(controller);
     }
     
+//    public void listenMouse(MouseListener controller){
+//        this.tblRegisteredSongs.addMouseListener(controller);
+//    }
+    
     public void listenMouse(MouseListener controller){
-        this.tblRegisteredSongs.addMouseListener(controller);
-    }
+    this.tblRegisteredSongs.addMouseListener(new MouseAdapter() {
+        @Override
+        public void mouseClicked(MouseEvent e) {
+            int row = tblRegisteredSongs.getSelectedRow();
+            if (row >= 0) {
+                String[] rowData = new String[tblRegisteredSongs.getColumnCount()];
+                for (int i = 0; i < tblRegisteredSongs.getColumnCount(); i++) {
+                    rowData[i] = tblRegisteredSongs.getValueAt(row, i).toString();
+                }
+                // Crear una canción con los datos de la fila seleccionada
+                Song selectedSong = new Song(rowData[0], rowData[1], Integer.parseInt(rowData[2]), Integer.parseInt(rowData[3]), Double.parseDouble(rowData[4]));
+                SongArray  songArray = new SongArray();
+                // Agregar la canción a listSongsSelected
+                songArray.addSongSelected(selectedSong);
+            }
+        }
+    });
+}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;

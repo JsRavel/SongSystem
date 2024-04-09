@@ -123,11 +123,7 @@ public class ControllerSong implements ActionListener, MouseListener{
     @Override
     public void mouseClicked(MouseEvent e) {
         this.dataPanelSong.setSong(
-        new Song(this.guiReport.getDataRow()[1],
-                this.guiReport.getDataRow()[3],
-                Integer.parseInt(this.guiReport.getDataRow()[0]),
-                Integer.parseInt(this.guiReport.getDataRow()[4]), 
-                Double.parseDouble(this.guiReport.getDataRow()[2])));
+        new Song(this.guiReport.getDataRow()[1], this.guiReport.getDataRow()[3],Integer.parseInt(this.guiReport.getDataRow()[0]),Integer.parseInt(this.guiReport.getDataRow()[4]), Double.parseDouble(this.guiReport.getDataRow()[2])));
         
     }
 

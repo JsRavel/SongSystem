@@ -15,6 +15,7 @@ public class SongArray {
     
     public SongArray(){
         this.listSongs=new ArrayList<>();
+        this.listSongsSelected = new ArrayList<>();
     }
     
     public Song searchSong(int idSong)
@@ -26,8 +27,7 @@ public class SongArray {
         }
         return null;
     }
-    public String add(Song song)
-    {
+    public String add(Song song){
         if (song!=null){
             if(searchSong(song.getIdSong())==null)
             {
@@ -39,6 +39,7 @@ public class SongArray {
         }
         return "Error adding song";
     }
+    
     public String delete(int idSong){
         if (this.listSongs.remove(this.searchSong(idSong)))
         {
@@ -86,10 +87,11 @@ public class SongArray {
             }
         }
         return matrizSongs;
-    } 
+    }
     
-    public void addSongSelected(Song song){
+    public String addSongSelected(Song song){
         listSongsSelected.add(song);
+        return "Se agregó la cancion";
     }
     
     public String[][] getSelectedSongSelected(){

@@ -6,6 +6,7 @@ package ucr.ac.cr.sisong.controller;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 import ucr.ac.cr.sisong.model.SongArray;
 import ucr.ac.cr.sisong.view.GUIAlbums;
 import ucr.ac.cr.sisong.view.GUIMain;
@@ -33,7 +34,7 @@ public class ControllerMain implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e){
         switch (e.getActionCommand()) {
-            case "Exitt":
+            case "Exit":
                 System.exit(0);
                 break;
                 

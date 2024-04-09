@@ -28,13 +28,13 @@ public class GUISong extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonPanel2 = new ucr.ac.cr.sisong.view.ButtonPanel();
         dataPanelSong1 = new ucr.ac.cr.sisong.view.DataPanelSong();
-        buttonPanel1 = new ucr.ac.cr.sisong.view.ButtonPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(buttonPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 500, -1));
         getContentPane().add(dataPanelSong1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 500, -1));
-        getContentPane().add(buttonPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 500, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -46,7 +46,7 @@ public class GUISong extends javax.swing.JFrame {
     return this.dataPanelSong1;
    }
    public ButtonPanel getButtonsPanel(){
-       return this.buttonPanel1;
+       return this.buttonPanel2;
    }
    
    public static void setMessage(String msj){
@@ -54,7 +54,7 @@ public class GUISong extends javax.swing.JFrame {
    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private ucr.ac.cr.sisong.view.ButtonPanel buttonPanel1;
+    private ucr.ac.cr.sisong.view.ButtonPanel buttonPanel2;
     private ucr.ac.cr.sisong.view.DataPanelSong dataPanelSong1;
     // End of variables declaration//GEN-END:variables
 }
